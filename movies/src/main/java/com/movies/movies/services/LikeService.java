@@ -11,13 +11,8 @@ import java.util.Optional;
 @Service
 public class LikeService {
 
-    private final LikeRepository likeRepository;
-    private final MovieRepository movieRepository;
-
-    public LikeService(LikeRepository likeRepository, MovieRepository movieRepository) {
-        this.likeRepository = likeRepository;
-        this.movieRepository = movieRepository;
-    }
+    private LikeRepository likeRepository;
+    private MovieRepository movieRepository;
 
     public Like addLike(Long movieId) {
         Movie movie = movieRepository.findById(movieId).orElseThrow(() -> new RuntimeException("Movie not found"));

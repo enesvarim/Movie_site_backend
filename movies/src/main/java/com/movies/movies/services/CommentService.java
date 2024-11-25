@@ -15,15 +15,10 @@ import java.util.Optional;
 
 @Service
 public class CommentService {
-    private final CommentRepository commentRepository;
-    private final MovieRepository movieRepository;
-    private final UserRepository userRepository;
+    private CommentRepository commentRepository;
+    private MovieRepository movieRepository;
+    private UserRepository userRepository;
 
-    public CommentService(CommentRepository commentRepository, MovieRepository movieRepository, UserRepository userRepository) {
-        this.commentRepository = commentRepository;
-        this.movieRepository = movieRepository;
-        this.userRepository = userRepository;
-    }
 
     public List<Comment> getCommentsForMovie(Long movieId) {
         return commentRepository.findByMovieId(movieId);
